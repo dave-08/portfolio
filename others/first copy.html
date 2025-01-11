@@ -12,7 +12,7 @@
     <div class = "nav-bar">
         <button onclick="scrollToSection('section1')" >About</button>
         <button onclick="scrollToSection('section2')">Work</button>
-        <button onclick="scrollToSection('section3')">Personal</button>
+        <button onclick="scrollToSection('section3')">Travel</button>
         <button onclick="scrollToSection('section4')">Contact</button>
     </div>
 
@@ -29,17 +29,22 @@
 
     <section id = "section2">
         <div class = "work-section">
-            <h1>Hi, I’m David, a robotics engineer based in Dubai<h2> I specialize in industrial robotics, 
-                focusing on designing and implementing automation solutions to enhance production efficiency. 
-                With over six years of experience, I help companies streamline processes and achieve their operational goals.</h2>
-            </h1>
+            <div class="reel-container">
+                  <div id="image1" class="carousel-item" data-index="0">
+                    <img src="resource/images/inWoods.jpg" alt="Reel Image 1">
+                  </div>
+                  <div id="image2" class="carousel-item">
+                    <img src="resource/images/inWoods.png" alt="Reel Image 2">
+                  </div>
+                  <div id="image3" class="carousel-item">
+                    <img src="resource/images/onCouch.jpg" alt="Reel Image 3">
+                  </div>
+            </div>
         </div>
     </section>
-
+  
     <section id = "section3">
         <div class = "personal-section">
-            <h1>Personal</h1>
-            
         </div>
     </section>
 
@@ -56,6 +61,42 @@
           document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
         }
     </script>
+
+    <script>
+       // Select all relevant elements
+        const carouselContainer = document.querySelector('.carousel-container');
+        const carouselItems = document.querySelectorAll('.carousel-item');
+
+        let currentIndex = 0;
+
+        // Function to update the carousel
+        function updateCarousel() {
+        carouselItems.forEach((item, index) => {
+            if (index === currentIndex) {
+            item.classList.add('active');
+            } else {
+            item.classList.remove('active');
+            }
+        });
+
+        // Calculate the transform for centering
+        const offset = currentIndex * (carouselItems[0].offsetWidth + 20); // Include the gap
+        carouselContainer.style.transform = `translateX(calc(50% - ${offset}px))`;
+        }
+
+        // Event listeners for clicking on images
+        carouselItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            currentIndex = index;
+            updateCarousel();
+        });
+        });
+
+        // Initialize the carousel
+        updateCarousel();
+
+    </script>
+
 
 </body>
 </html>
