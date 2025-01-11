@@ -29,13 +29,25 @@
 
     <section id = "section2">
         <div class = "work-section">
-          <img src="resource/images/inWoods.png" alt="Image in Rectangle">
+            <div class="reel-container">
+                <div class="carousel">
+                  <div class="carousel-item">
+                    <img src="resource/images/onCouch.jpg" alt="Reel Image 1">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="resource/images/inWoods.png" alt="Reel Image 2">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="resource/images/onCouch.jpg" alt="Reel Image 3">
+                  </div>
+                  <!-- Add more items here -->
+                </div>
+            </div>
         </div>
     </section>
   
     <section id = "section3">
         <div class = "personal-section">
-          <img src="inWoods.png" alt="Image in Rectangle">
         </div>
     </section>
 
@@ -54,30 +66,37 @@
     </script>
 
     <script>
-        const reel = document.getElementById('reel');
-        const items = document.querySelectorAll('.reel-item');
-    
-        // Set the initial active item
-        let activeIndex = 2; // Middle item is active by default
-        updateActiveItem();
-    
-        function scrollToItem(index) {
-        activeIndex = index;
-        const offset = -((index * 340) - (window.innerWidth / 2 - 170)); // Calculate offset
-        reel.style.transform = `translateX(${offset}px)`;
-        updateActiveItem();
-        }
-    
-        function updateActiveItem() {
-        items.forEach((item, index) => {
-            if (index === activeIndex) {
-            item.classList.add('active');
-            } else {
-            item.classList.remove('active');
+        let currentIndex = 0;
+        const totalSlides = document.querySelectorAll('.carousel-item').length;
+
+        function changeSlide() {
+        const slides = document.querySelectorAll('.carousel-item');
+        slides.forEach((slide, index) => {
+            slide.classList.remove('active'); // Remove 'active' class from all items
+            if (index === currentIndex) {
+            slide.classList.add('active'); // Add 'active' class to the current item
             }
         });
+
+        // Log the currentIndex for debugging
+        console.log('Current Index: ', currentIndex);
+
+        // Move the carousel
+        const reelContainer = document.querySelector('.reel-container');
+        reelContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+        // Update the index
+        currentIndex = (currentIndex + 1) % totalSlides;
         }
+
+        // Automatically change slide every 3 seconds
+        setInterval(changeSlide, 3000);
+
+        // Initial highlight
+        changeSlide();
+
     </script>
+
 
 </body>
 </html>
