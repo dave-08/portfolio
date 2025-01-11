@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>firstPage</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    
+    <div class = "nav-bar">
+        <button onclick="scrollToSection('section1')" >About</button>
+        <button onclick="scrollToSection('section2')">Work</button>
+        <button onclick="scrollToSection('section3')">Personal</button>
+        <button onclick="scrollToSection('section4')">Contact</button>
+    </div>
+
+
+
+    <section id = "section1">
+        <div class = "about-section">
+            <h1>Hi, I’m David, a robotics engineer based in Dubai<h2> I specialize in industrial robotics, 
+                focusing on designing and implementing automation solutions to enhance production efficiency. 
+                With over six years of experience, I help companies streamline processes and achieve their operational goals.</h2>
+            </h1>
+        </div>
+    </section>
+
+    <section id = "section2">
+        <div class = "work-section">
+            <h1>Hi, I’m David, a robotics engineer based in Dubai<h2> I specialize in industrial robotics, 
+                focusing on designing and implementing automation solutions to enhance production efficiency. 
+                With over six years of experience, I help companies streamline processes and achieve their operational goals.</h2>
+            </h1>
+        </div>
+    </section>
+
+    <section id = "section3">
+        <div class = "personal-section">
+            <h1>Personal</h1>
+            
+        </div>
+    </section>
+
+    <section id = "section4">
+        <div class = "contact-section">
+            <h1>contact</h1>
+        </div>
+    </section>
+    
+    
+
+    <script>
+        function scrollToSection(sectionId) {
+          document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>

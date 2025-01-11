@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizontal Reel</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    .reel-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      width: 80%;
+      position: relative;
+    }
+
+    .reel {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .reel-item {
+      flex: 0 0 300px; /* Each item is 300px wide */
+      height: 200px;
+      margin: 0 20px;
+      transition: transform 0.5s, filter 0.5s;
+      filter: blur(5px); /* Default blur for all items */
+      cursor: pointer;
+      opacity: 0.6;
+    }
+
+    .reel-item.active {
+      transform: scale(1.2); /* Enlarge the active item */
+      filter: blur(0); /* Remove blur */
+      opacity: 1;
+    }
+
+    .reel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="reel-container">
+  <div class="reel" id="reel">
+    <div class="reel-item" onclick="scrollToItem(0)">
+      <img src="https://via.placeholder.com/300" alt="Image 1">
+    </div>
+    <div class="reel-item" onclick="scrollToItem(1)">
+      <img src="https://via.placeholder.com/300" alt="Image 2">
+    </div>
+    <div class="reel-item" onclick="scrollToItem(2)">
+      <img src="https://via.placeholder.com/300" alt="Image 3">
+    </div>
+    <div class="reel-item" onclick="scrollToItem(3)">
+      <img src="https://via.placeholder.com/300" alt="Image 4">
+    </div>
+    <div class="reel-item" onclick="scrollToItem(4)">
+      <img src="https://via.placeholder.com/300" alt="Image 5">
+    </div>
+  </div>
+</div>
+
+<script>
+  const reel = document.getElementById('reel');
+  const items = document.querySelectorAll('.reel-item');
+
+  // Set the initial active item
+  let activeIndex = 2; // Middle item is active by default
+  updateActiveItem();
+
+  function scrollToItem(index) {
+    activeIndex = index;
+    const offset = -((index * 340) - (window.innerWidth / 2 - 170)); // Calculate offset
+    reel.style.transform = `translateX(${offset}px)`;
+    updateActiveItem();
+  }
+
+  function updateActiveItem() {
+    items.forEach((item, index) => {
+      if (index === activeIndex) {
+        item.classList.add('active');
+      } else {
+        item.classList.remove('active');
+      }
+    });
+  }
+</script>
+
+</body>
+</html>
