@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>firstPage</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    
+    <div class = "nav-bar">
+        <button onclick="scrollToSection('section1')" >About</button>
+        <button onclick="scrollToSection('section2')">Work</button>
+        <button onclick="scrollToSection('section3')">Travel</button>
+        <button onclick="scrollToSection('section4')">Contact</button>
+    </div>
+
+
+
+    <section id = "section1">
+        <div class = "about-section">
+            <h1>Hi, I’m David, a robotics engineer based in Dubai<h2> I specialize in industrial robotics, 
+                focusing on designing and implementing automation solutions to enhance production efficiency. 
+                With over six years of experience, I help companies streamline processes and achieve their operational goals.</h2>
+            </h1>
+        </div>
+    </section>
+
+    <section id = "section2">
+        <div class = "work-section">
+          <img src="https://github.com/dave-08/webpage/blob/63d6a1bcecae48a6119850ccbf0746cd6cb15cb4/webpages/robot.jpg" alt="Image in Rectangle">
+        </div>
+    </section>
+  
+    <section id = "section3">
+        <div class = "personal-section">
+          <img src="inWoods.png" alt="Image in Rectangle">
+        </div>
+    </section>
+
+    <section id = "section4">
+        <div class = "contact-section">
+            <h1>contact</h1>
+        </div>
+    </section>
+    
+    
+
+    <script>
+        function scrollToSection(sectionId) {
+          document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+
+    <script>
+        const reel = document.getElementById('reel');
+        const items = document.querySelectorAll('.reel-item');
+    
+        // Set the initial active item
+        let activeIndex = 2; // Middle item is active by default
+        updateActiveItem();
+    
+        function scrollToItem(index) {
+        activeIndex = index;
+        const offset = -((index * 340) - (window.innerWidth / 2 - 170)); // Calculate offset
+        reel.style.transform = `translateX(${offset}px)`;
+        updateActiveItem();
+        }
+    
+        function updateActiveItem() {
+        items.forEach((item, index) => {
+            if (index === activeIndex) {
+            item.classList.add('active');
+            } else {
+            item.classList.remove('active');
+            }
+        });
+        }
+    </script>
+
+</body>
+</html>
