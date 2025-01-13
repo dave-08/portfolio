@@ -28,19 +28,20 @@
     </section>
 
     <section id = "section2">
-        <div class = "work-section">
-            <div class="reel-container">
-                <div id="image1" class="carousel-item" data-index="0">
-                  <img src="resource/images/inWoods.jpg" alt="Reel Image 1">
-                </div>
-                <div id="image2" class="carousel-item">
-                  <img src="resource/images/inWoods.png" alt="Reel Image 2">
-                </div>
-                <div id="image3" class="carousel-item">
-                  <img src="resource/images/onCouch.jpg" alt="Reel Image 3">
-                </div>
+        <div class="reel-container">
+            <div class="reel">
+              <div class="reel-item">
+                <img src="resource\images\inWoods.png" alt="Image 1">
+              </div>
+              <div class="reel-item">
+                <img src="resource\images\inWoods.png" alt="Image 2">
+              </div>
+              <div class="reel-item">
+                <img src="resource\images\inWoods.png" alt="Image 3">
+              </div>
+              <!-- Add more images as needed -->
+            </div>
           </div>
-        </div>
     </section>
   
     <section id = "section3">
@@ -63,38 +64,15 @@
     </script>
 
     <script>
-        const carousel = document.querySelector('.carousel');
-        const items = document.querySelectorAll('.carousel-item');
-        let currentIndex = 2; // Start with the third image as the active one
+        const reel = document.querySelector('.reel');
 
-        // Function to update the carousel
-        function updateCarousel() {
-        items.forEach((item, index) => {
-            item.classList.remove('active');
-            const offset = index - currentIndex;
-
-            // Position each image based on its offset
-            item.style.transform = `translateX(${offset * 220}px) scale(${1 - Math.abs(offset) * 0.2})`;
-            item.style.opacity = Math.max(0.5, 1 - Math.abs(offset) * 0.5);
-
-            if (offset === 0) {
-            item.classList.add('active');
-            }
-        });
-        }
-
-        // Initial setup
-        updateCarousel();
-
-        // Move to the next image when a non-active image is clicked
-        items.forEach((item, index) => {
-        item.addEventListener('click', () => {
-            currentIndex = index;
-            updateCarousel();
-        });
+        reel.addEventListener('mouseover', () => {
+        reel.style.animationPlayState = 'paused';
         });
 
-
+        reel.addEventListener('mouseout', () => {
+        reel.style.animationPlayState = 'running';
+        });
     </script>
 
 

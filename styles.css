@@ -60,49 +60,62 @@ section {
     overflow: hidden;
 }
 
+/* Reel Container */
 .reel-container {
-    display: flex;
-    transition: transform 1s ease-in-out;
-    will-change: transform;
-}
+    width: 100%;
+    overflow: hidden;
+    background: #000; /* Optional: Background color */
+  }
   
-.carousel-section {
-    width: 80%;
-    height: 70%;
+  /* Reel Wrapper */
+  .reel {
+    display: flex;
+    gap: 1rem; /* Space between images */
+    animation: scroll 20s linear infinite; /* Smooth scroll effect */
+  }
+  
+  /* Individual Reel Items */
+  .reel-item {
+    flex: 0 0 auto;
+    width: 100vw; /* Full viewport width for each image */
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    overflow: hidden;
   }
   
-.carousel {
-    display: flex;
-    gap: 20px; /* Space between images */
-    transition: transform 0.8s ease-in-out;
-    position: relative;
-}
-  
-.carousel-item {
-    flex: 0 0 auto;
-    width: 200px;
-    height: 300px;
-    opacity: 0.5; /* Dim images by default */
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    transform: scale(0.8); /* Shrink images by default */
-}
-  
-.carousel-item.active {
-    opacity: 1; /* Highlight the center image */
-    transform: scale(1.2); /* Enlarge the center image */
-}
-  
-.carousel-item img {
-    width: 100%;
-    height: 100%;
+  .reel-item img {
+    max-width: 80%;
+    height: 80%;
     object-fit: cover;
-    border-radius: 10px;
-}
+    border-radius: 10px; /* Optional: Rounded corners for images */
+  }
+  
+  /* Smooth Scroll Animation */
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  /* Hover Effects */
+  .reel-item {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+  
+  .reel-item:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .reel-item img {
+      width: 90vw; /* Adjust image size for smaller screens */
+    }
+  }
 
 
 .personal-section{
