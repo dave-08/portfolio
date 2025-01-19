@@ -51,77 +51,67 @@ section {
     font-family: 'calibri', sans-serif;
 }
 
-.work-section{
-    position: absolute;
+
+
+/* Reel Container */
+.reel-container {
     width: 100%;
-    height: 80%;
-    bottom: 5%;
-    background-color: rgba(0, 255, 255, 0.158);
+    height: 70%;
+    height: auto;
     overflow: hidden;
-    display: flex; /* Ensure child alignment */
-    justify-content: center; /* Center the reel horizontally */
-    align-items: center; /* Center the reel vertically */
-}
-
-/* Reel Wrapper */
-.reel {
-  display: flex;
-  height: 100%;
-  gap: 2%; /* Space between images */
-  animation: scroll 20s linear infinite; /* Smooth scroll effect */
-  align-content: center;
+    background: #d5cdcd; /* Optional: Background color */
+  }
   
-}
-
-/* Individual Reel Items */
-.reel-item {
-  flex: 0 0 auto;
-  margin: 0%; /* Reset any potential extra spacing */
-  padding: 0; /* Reset padding if applied */
-  width: 100vw; /* Full viewport width for each image */
-  height: 100%; /* Ensure full height of parent */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.reel-item img { /* this data  to  change image size */
-  margin: 0%; /* Remove image margin */
-  padding: 0; /* Remove image padding */
-  height: 80;
-  width: 100%;
-  object-fit: contain;
-  border-radius: 4px; /* Optional: Rounded corners for images */
-}
-
-/* Smooth Scroll Animation */
-@keyframes scroll {
-  from {
-    transform: translateX(0);
+  /* Reel Wrapper */
+  .reel {
+    display: flex;
+    height: 80%;
+    gap: 0; /* Space between images */
+    animation: scroll 20s linear infinite; /* Smooth scroll effect */
   }
-  to {
-    transform: translateX(-100%);
+  
+  /* Individual Reel Items */
+  .reel-item {
+    flex: 0 0 auto;
+    width: 90vw; /* Full viewport width for each image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-}
-
-/* Hover Effects */
-.reel-item {
-  transition: transform 0.5s ease, opacity 0.5s ease;
-}
-
-.reel-item:hover {
-  transform: scale(1.05);
-  opacity: 0.9;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .reel-item img {
-    width: 100%; /* Adjust image size for smaller screens */
-    height: 100%;
-    object-fit: contain;
+  
+  .reel-item img { /* this data  to  change image size */
+    max-width: 95%;
+    height: 60%;
+    object-fit: cover;
+    border-radius: 4px; /* Optional: Rounded corners for images */
   }
-}
+  
+  /* Smooth Scroll Animation */
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+  
+  /* Hover Effects */
+  .reel-item {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+  
+  .reel-item:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .reel-item img {
+      width: 90vw; /* Adjust image size for smaller screens */
+    }
+  }
 
 
 .personal-section{
