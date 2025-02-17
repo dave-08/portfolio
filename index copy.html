@@ -28,7 +28,7 @@
     </section>
 
     <section id = "section2">
-        <div class="reel-container">
+        <div class="work-section">
             <div class="reel">
               <div class="reel-item">
                 <img src="resource\images\work\1.png" alt="Image 1">
@@ -67,6 +67,16 @@
     </script>
 
     <script>
+
+        document.querySelectorAll(".reel-item").forEach(item => {
+                  item.addEventListener("click", function() {
+                      this.scrollIntoView({
+                          behavior: "smooth",
+                          block: "center",
+                          inline: "center"
+                      });
+                  });
+              });
         const reel = document.querySelector('.reel');
 
         reel.addEventListener('mouseover', () => {
@@ -77,7 +87,6 @@
         reel.style.animationPlayState = 'running';
         });
     </script>
-
 
 </body>
 </html>

@@ -61,23 +61,33 @@
     
 
     <script>
-        function scrollToSection(sectionId) {
-          document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+       // Function to scroll to sections smoothly
+       function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
         }
-    </script>
 
-    <script>
+        // Adding smooth scrolling for images in the reel
+        document.querySelectorAll(".reel-item").forEach(item => {
+            item.addEventListener("click", function() {
+                this.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                    inline: "center"
+                });
+            });
+        });
+
+        // Adding pause/resume animation on hover for the reel
         const reel = document.querySelector('.reel');
 
         reel.addEventListener('mouseover', () => {
-        reel.style.animationPlayState = 'paused';
+            reel.style.animationPlayState = 'paused';
         });
 
         reel.addEventListener('mouseout', () => {
-        reel.style.animationPlayState = 'running';
+            reel.style.animationPlayState = 'running';
         });
     </script>
-
 
 </body>
 </html>
